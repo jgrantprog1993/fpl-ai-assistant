@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    font-family: 'Arial', sans-serif; /* Use a clean sans-serif font */
+    background-color: #1A1A1A; /* Dark background */
+    color: #FFFFFF; /* Default text color */
+}
+
+h1, h2, h3, h4 {
+    color: #E0E0E0; /* Light gray for headings */
+}
+
+a {
+    color: #0072B1; /* Blue for links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+button {
+    transition: background-color 0.3s ease; /* Smooth transition for buttons */
+}

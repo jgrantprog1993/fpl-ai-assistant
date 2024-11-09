@@ -1,4 +1,7 @@
-export default function RootLayout({ children }) {
+// app/layout.js
+import '../src/styles/globals.css'; // Import global styles
+
+const RootLayout = ({ children }) => {
   return (
     <html lang="en">
       <head>
@@ -11,4 +14,6 @@ export default function RootLayout({ children }) {
       </body>
     </html>
   );
-} 
+};
+
+export default RootLayout;

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-export default function TeamInfoAndLeagues({ teamId }) {
+const TeamInfoAndLeagues = ({ teamId }) => {
   const [teamData, setTeamData] = useState(null);
   const [error, setError] = useState(null);
 
@@ -50,4 +50,6 @@ export default function TeamInfoAndLeagues({ teamId }) {
       </ul>
     </div>
   );
-}
+} 
+
+export default TeamInfoAndLeagues;

@@ -21,14 +21,19 @@ function LeagueList({ teamId }) {
     }, [teamId]);
 
     return (
-        <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {error && <p>{error}</p>}
-            <ul>
-                {leagues.map((league) => (
-                    <li key={league.id}>{league.name}</li>
-                ))}
-            </ul>
+            {leagues.map((league) => (
+            <div key={league.id} className="bg-gray-800 p-4 rounded-lg shadow-lg">
+              <h3 className="text-xl font-bold">{league.name}</h3>
+              <p className="text-gray-400">League Code: {league.code}</p>
+              <p className="text-gray-400">Created on: {new Date(league.createdAt).toLocaleDateString()}</p>
+              <button className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded mt-2">
+                View League
+              </button>
         </div>
+      ))}
+    </div>
     );
 }
 
