@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/jason.grant/Documents/Personal/Projects/Gaa-Livescore-App/fpl-ai-assistant/src/app/layout.jsx"],"sourcesContent":["export default function RootLayout({ children }) {\n  return (\n    <html lang=\"en\">\n      <head>\n        <link rel=\"manifest\" href=\"/manifest.json\" />\n        <meta name=\"theme-color\" content=\"#00843D\" />\n        <title>FPL AI</title>\n      </head>\n      <body>\n        {children}\n      </body>\n    </html>\n  );\n} "],"names":[],"mappings":";;;;;AAAe,SAAS,WAAW,EAAE,QAAQ,EAAE;IAC7C,qBACE,8OAAC;QAAK,MAAK;;0BACT,8OAAC;;kCACC,8OAAC;wBAAK,KAAI;wBAAW,MAAK;;;;;;kCAC1B,8OAAC;wBAAK,MAAK;wBAAc,SAAQ;;;;;;kCACjC,8OAAC;kCAAM;;;;;;;;;;;;0BAET,8OAAC;0BACE;;;;;;;;;;;;AAIT"}},
+    {"offset": {"line": 61, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}},
+    {"offset": {"line": 72, "column": 0}, "map": {"version":3,"sources":["file:///Users/jason.grant/Documents/Personal/Projects/Gaa-Livescore-App/fpl-ai-assistant/node_modules/next/src/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.ts"],"sourcesContent":["module.exports = require('../../module.compiled').vendored[\n  'react-rsc'\n].ReactJsxDevRuntime\n"],"names":["module","exports","require","vendored","ReactJsxDevRuntime"],"mappings":";AAAAA,OAAOC,OAAO,GAAGC,QAAQ,0HAAyBC,QAAQ,CACxD,YACD,CAACC,kBAAkB","ignoreList":[0]}},
+    {"offset": {"line": 74, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}
