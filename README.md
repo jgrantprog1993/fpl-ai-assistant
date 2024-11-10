@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Fantasy Premier League Tracker
+
+Welcome to the **Fantasy Premier League Tracker**! ⚽️🏆
+
+## Goal
+
+The goal of this project is to provide an engaging and user-friendly interface for tracking your Fantasy Premier League teams and leagues. With real-time updates on player standings, ranks, and performance, you can stay ahead of the game and make informed decisions to boost your fantasy team!
+
+## Features
+
+- **League Details**: View detailed information about your leagues, including player rankings and total points.
+- **Team Information**: Get insights into your team's performance, including overall points and rank.
+- **Dynamic Updates**: Real-time data fetching ensures you always have the latest information at your fingertips.
+
+## Technology Stack
+
+This project is built using a modern tech stack:
+
+- **React**: For building interactive user interfaces.
+- **Next.js**: For server-side rendering and routing.
+- **Tailwind CSS**: For styling and creating responsive designs with utility-first classes.
+- **Axios**: For making API requests to fetch data from the Fantasy Premier League API.
+
+## Cursor Project
+
+This project is part of the **Cursor** initiative, focusing on enhancing your coding skills and building real-world applications. Join us on this journey to create something amazing!
 
 ## Getting Started
 
-First, run the development server:
+To get started with the Fantasy Premier League Tracker, clone the repository and install the dependencies:
+bash
+git clone https://github.com/jgrantprog1993/fantasy-premier-league-tracker.git
+cd fantasy-premier-league-tracker
+npm install
 
-```bash
+Then, run the development server:
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Open your browser and navigate to `http://localhost:3000` to see the app in action!
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Contributing
 
-## Learn More
+We welcome contributions! If you have ideas for features or improvements, feel free to open an issue or submit a pull request.
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Thank you for checking out the Fantasy Premier League Tracker! Let's score some points together! 🎉
