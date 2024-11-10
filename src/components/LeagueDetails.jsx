@@ -1,82 +1,68 @@
-import { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
 
-const LeagueDetails = () => {
-  const { leagueId } = useParams();
-  const [league, setLeague] = useState([]);
-  const [teams, setTeams] = useState([]);
+const LeagueDetails = ({ leagueId }) => {
+  const [league, setLeague] = useState(null);
+  const [standings, setStandings] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchLeagueDetails = async () => {
-      try {
-        const response = await axios.get(`/api/leagues?leagueId=${leagueId}`);
-        setTeams(response.data.standings.results);
-        setLeague(response.data.league);
-      } catch (error) {
-        console.error('Error fetching league details:', error.message);
-        setError('Failed to fetch league details.');
-      }
-    };
+    if (leagueId) {
+      const fetchLeagueDetails = async () => {
+        try {
+          const response = await axios.get(`/api/leagues?leagueId=${leagueId}`);
+          console.log('Fetched league details:', response.data); // Log the response data
+          
+          // Set league and standings based on the response structure
+          setLeague(response.data.league);
+          setStandings(response.data.standings.results);
+        } catch (error) {
+          console.error('Error fetching league details:', error);
+          setError('Failed to fetch league details.');
+        }
+      };
 
-    fetchLeagueDetails();
+      fetchLeagueDetails();
+    }
   }, [leagueId]);
 
   if (error) {
-    return <p>{error}</p>;
+    return <p className="text-red-500">{error}</p>; // Tailwind for error message
   }
 
-  if (!teams.length) {
+  if (!league) {
     return <p>Loading...</p>;
   }
 
   return (
-    <div className="p-6">
-      <h2 className="text-2xl font-bold">League Details</h2>
-      <h3 className="text-lg font-semibold">League ID: {leagueId}</h3>
-      <h3 className="text-lg font-semibold">League Name: {league.name}</h3>
-      
-      <ul className="mt-4 space-y-4">
-  {teams.map(team => {
-    const rankChange = team.rank - team.last_rank;
-    const arrow = rankChange > 0 ? '↑' : rankChange < 0 ? '↓' : '';
-    const arrowColor = rankChange > 0 ? 'text-green-500' : rankChange < 0 ? 'text-red-500' : 'text-gray-400';
-
-    // Function to get ordinal suffix
-    const getOrdinalSuffix = (num) => {
-      if (num > 3 && num < 21) return 'th'; // Special case for 11th, 12th, 13th
-      switch (num % 10) {
-        case 1: return 'st';
-        case 2: return 'nd';
-        case 3: return 'rd';
-        default: return 'th';
-      }
-    };
-
-    return (
-      <li key={team.entry} className="bg-gray-800 shadow-md rounded-lg p-4 flex items-center justify-between">
-        {/* Current Rank Section */}
-        <div className="flex-shrink-0">
-          <h4 className="text-lg font-semibold">{team.rank}{getOrdinalSuffix(team.rank)}</h4>
+    <div className="p-4">
+      <h1 className="text-2xl font-bold mb-4">{league.name}</h1>
+      <h2 className="text-xl font-semibold mb-2">Standings:</h2>
+      {standings.length > 0 ? (
+        <div className="space-y-4">
+          {standings.map((player) => (
+            <div className="flex items-center bg-white border border-gray-300 rounded-lg shadow-md p-4" key={player.id}>
+              <div className="w-16 text-center text-lg font-bold text-gray-700">{player.rank}</div>
+              <div className="flex-1 ml-4">
+                <h2 className="text-lg font-semibold">{player.entry_name}</h2>
+                <h3 className="text-lg font-semibold">Current Rank: {player.rank}</h3>
+                <h3 className="text-lg font-semibold">Last Week's Rank: {player.last_rank}</h3>
+                <p className="text-gray-700">Gamweek Points: {player.event_total}</p>
+                <p className="text-gray-700">Total Points: {player.total}</p>
+              </div>
+              <div className="ml-4 text-2xl"> {/* Increased font size for arrows */}
+                {player.last_rank > player.rank ? (
+                  <span className="text-red-500">&#8595;</span> // Down arrow
+                ) : player.last_rank < player.rank ? (
+                  <span className="text-green-500">&#8593;</span> // Up arrow
+                ) : null}
+              </div>
+            </div>
+          ))}
         </div>
-
-        {/* Team Details Section */}
-        <div className="flex-grow mx-4">
-          <p className="text-gray-400">Team Name: {team.entry_name}</p>
-          <p className="text-gray-400">Manager Name: {team.player_name}</p>
-          <p className="text-gray-400">Last Week’s Rank: {team.last_rank}{getOrdinalSuffix(team.last_rank)}</p>
-          <p className="text-gray-400">Total Points: {team.total}</p>
-        </div>
-
-        {/* Movement Arrow Section */}
-        <div className={`text-lg font-bold ${arrowColor}`}>
-          {arrow && <span>{arrow}</span>}
-        </div>
-      </li>
-    );
-  })}
-</ul>
+      ) : (
+        <p>No standings available.</p>
+      )}
     </div>
   );
 };

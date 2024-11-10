@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const TeamInfoAndLeagues = ({ teamId }) => {
   const [teamData, setTeamData] = useState(null);
@@ -32,17 +32,25 @@ const TeamInfoAndLeagues = ({ teamId }) => {
   }
 
   return (
-    <div className="bg-white shadow-md rounded p-6">
-      <h2 className="text-2xl font-semibold text-gray-800 mb-4">Team Information</h2>
-      <p className="text-gray-600">Team Name: {teamData.name}</p>
-      <p className="text-gray-600">Overall Points: {teamData.summary_overall_points}</p>
-      <p className="text-gray-600">Overall Rank: {teamData.summary_overall_rank}</p>
+    <div className="bg-white shadow-lg rounded-lg p-8 max-w-lg mx-auto">
+      <h2 className="text-3xl font-bold text-gray-900 mb-6">Team Information</h2>
+      <div className="space-y-4">
+        <p className="text-lg text-gray-700">
+          <span className="font-semibold">Team Name:</span> {teamData.name}
+        </p>
+        <p className="text-lg text-gray-700">
+          <span className="font-semibold">Overall Points:</span> {teamData.summary_overall_points}
+        </p>
+        <p className="text-lg text-gray-700">
+          <span className="font-semibold">Overall Rank:</span> {teamData.summary_overall_rank}
+        </p>
+      </div>
 
-      <h2 className="text-2xl font-semibold text-gray-800 mt-6 mb-4">Leagues</h2>
-      <ul className="list-disc pl-5">
+      <h2 className="text-3xl font-bold text-gray-900 mt-8 mb-4">Leagues</h2>
+      <ul className="space-y-3">
         {teamData.leagues.classic.map(league => (
-          <li key={league.id} className="text-gray-600">
-            <Link to={`/league/${league.id}`} className="text-blue-500 hover:underline">
+          <li key={league.id} className="bg-gray-100 p-4 rounded-lg shadow-sm">
+            <Link href={`/league/${league.id}`} className="text-lg font-semibold text-blue-600 hover:text-blue-800">
               {league.name} - Rank: {league.entry_rank}
             </Link>
           </li>

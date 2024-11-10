@@ -25,3 +25,15 @@ a:hover {
 button {
     transition: background-color 0.3s ease; /* Smooth transition for buttons */
 }
+
+header, main, footer {
+    border: 1px solid red; /* Temporary border for visualization */
+}
+
+body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+main {
+    overflow-y: auto; /* Allow vertical scrolling if content overflows */
+}

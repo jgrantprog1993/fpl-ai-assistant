@@ -1,17 +1,19 @@
-   // app/league/[id]/page.js
-   'use client';
-   import { useRouter } from 'next/router';
+// app/league/[id]/page.js
+'use client'; // Ensure this is a client component
+import { usePathname } from 'next/navigation';
+import LeagueDetails from '../../../src/components/LeagueDetails'; // Adjust the path as necessary
 
-   const LeaguePage = () => {
-     const router = useRouter();
-     const { id } = router.query;
+const LeagueDetailsPage = () => {
+  const pathname = usePathname();
+  const id = pathname.split('/').pop(); // Extract the last segment of the path
 
-     return (
-       <div>
-         <h1>League ID: {id}</h1>
-         {/* Render league data here */}
-       </div>
-     );
-   };
+  // Check if id is available before rendering LeagueDetails
+  if (!id) {
+    return <p>Loading...</p>; // or some loading state
+  }
 
-   export default LeaguePage;
+  // Render the LeagueDetails component and pass the id as a prop
+  return <LeagueDetails leagueId={id} />;
+};
+
+export default LeagueDetailsPage;
