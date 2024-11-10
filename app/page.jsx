@@ -1,7 +1,7 @@
 // app/page.jsx
 'use client';
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
 import TeamInfoAndLeagues from '../src/components/TeamInfoAndLeagues';
 import LeagueDetails from '../src/components/LeagueDetails';
 import LeagueList from '../src/components/LeagueList';
@@ -13,7 +13,14 @@ function AppContent() {
   return (
     <div className="min-h-screen p-6">
       <header className="flex justify-between items-center mb-6">
-        <h1 className="text-4xl font-bold text-green-500">Fantasy Premier League</h1>
+        {/* Logo that links to the home page */}
+        <Link to="/" className="flex items-center">
+          <img 
+            src="/images/pl-main-logo.png" // Path to your logo image in the public directory
+            alt="Fantasy Premier League Logo"
+            className="h-12 w-auto" // Adjust height as needed
+          />
+        </Link>
         <nav>
           <button className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded">
             My Team
