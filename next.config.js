@@ -17,5 +17,5 @@ module.exports = withPWA({
       },
     ];
   },
-  // Add any other Next.js configurations here
+  // Remove the experimental.turbo option
 });

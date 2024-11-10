@@ -1,11 +1,11 @@
+/* src/styles/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 body {
     font-family: 'Arial', sans-serif; /* Use a clean sans-serif font */
-    background-color: #1A1A1A; /* Dark background */
+    background-color: #37003C; /* Dark background */
     color: #FFFFFF; /* Default text color */
 }
 
